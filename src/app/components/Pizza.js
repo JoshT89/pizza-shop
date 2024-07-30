@@ -9,7 +9,7 @@ import PizzaDetails from "./PizzaDetails";
 //icons
 import { IoCloseOutline } from "react-icons/io5";
 
-// blind modal to body
+// bind modal to body
 Modal.setAppElement('body');
 
 //modal styles
@@ -31,6 +31,7 @@ const Pizza = ({ pizza }) => {
   const closeModal = () => {
     setModal(false);
   };
+
   return (
     <div className='group py-2 px-4 xl:py-4 xl:px-2 rounded-xl'>
       <Image
@@ -45,7 +46,7 @@ const Pizza = ({ pizza }) => {
       />
       {/* title */}
       <div onClick={openModal}>
-        <div className='text-xl font-bold mb-3 capita;ize cursor-pointer'>
+        <div className='text-xl font-bold mb-3 capitalize cursor-pointer'>
           {pizza.name}
         </div>
       </div>
@@ -81,10 +82,17 @@ const Pizza = ({ pizza }) => {
           contentLabel="Pizza Modal"
           className='bg-white w-full h-full lg:max-w-[900px]
           lg:max-h-[600px] lg:rounded-[30px] lg:fixed lg:top-[50%] 
-lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%] outlne-none
+lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%] outline-none
         '
         >
-          modal
+          {/* close modal */}
+          <div
+            onClick={closeModal}
+            className='absolute z-30 top-2 right-2 hover:scale-110 duration-200 cursor-pointer'>
+            <IoCloseOutline className='text-4xl text-orange' />
+          </div>
+          {/* pizza details */}
+          <PizzaDetails pizza={pizza} modal={modal} setModal={setModal} />
         </Modal>
       )}
     </div>
