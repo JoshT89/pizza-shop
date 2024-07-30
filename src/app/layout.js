@@ -24,9 +24,11 @@ const robotoCondensed = Roboto_Condensed({
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${quicksand.variable} ${bangers.variable} ${robotoCondensed.variable}
-       font-quicksand`}
+      <body 
+      className={`${quicksand.variable} ${bangers.variable} 
+      ${robotoCondensed.variable} font-quicksand`}
       >
+        
         {children}
         </body>
     </html>
