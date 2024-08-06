@@ -68,7 +68,7 @@ const PizzaDetails = ({ pizza }) => {
                         <div className='font-semibold'>
                             <h2 className='capitalize text-3xl mb-1'>{pizza.name}</h2>
                             {/* size and crust text */}
-                            <div className='bg-yellow-200 mb-6 text-lg font-medium'>
+                            <div className='mb-6 text-lg font-medium'>
                                 <span>
                                     {size === 'small'
                                         ? '25 cm'
@@ -84,14 +84,21 @@ const PizzaDetails = ({ pizza }) => {
                         {/* size selection */}
                         <SizeSelection pizza={pizza} size={size} setSize={setSize}/>
                         {/* crust selection */}
-                        <CrustSelection />
+                        <CrustSelection crust={crust} setCrust={setCrust} />
                         {/* additional toppings */}
-                        <div>Choose toppings</div>
+                        <div className='mb-4 text-xl font-semibold'>Choose toppings</div>
                         {/* toppings list */}
                         <div>
                             {pizza.toppings?.map((topping, index) => {
-                                return <Topping key={index} />;
-                            })}
+                                return (
+                                <Topping
+                                 topping={topping}
+                                 additionalTopping={additionalTopping}
+                                 setAdditionalTopping={setAdditionalTopping}
+                                 key={index}
+                                 />
+                                );
+                            })};
                         </div>
                     </div>
                 </div>
