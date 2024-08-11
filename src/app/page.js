@@ -379,6 +379,7 @@ const pizzas = [
 export default function Home() {
   return (
     <section>
+      <Banner />
       <div className='container mx-auto'>
         {/* pizza grid */}
         <div className='grid grid-cols-2 gap-[15px] md:grid-cols-3 

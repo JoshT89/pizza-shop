@@ -16,7 +16,9 @@ const PizzaDetails = ({ pizza }) => {
     // additional toppings price
     const [additionalToppingPrice, setAdditionalToppingPrice] = useState(0);
     // price state
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState(0);
+
+    
 
     // set price based on size
     useEffect(() => {
@@ -88,7 +90,8 @@ const PizzaDetails = ({ pizza }) => {
                         {/* additional toppings */}
                         <div className='mb-4 text-xl font-semibold'>Choose toppings</div>
                         {/* toppings list */}
-                        <div>
+                        <div className='flex flex-1 flex-wrap gap-2 py-1 justify-center 
+                        lg:justify-start'>
                             {pizza.toppings?.map((topping, index) => {
                                 return (
                                 <Topping
