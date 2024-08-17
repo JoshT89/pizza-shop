@@ -1,12 +1,12 @@
 'use client';
 import React, { useState } from "react";
-// image
+
 import Image from "next/image";
-//modal
+
 import Modal from "react-modal";
-//components
+
 import PizzaDetails from "./PizzaDetails";
-//icons
+
 import { IoCloseOutline } from "react-icons/io5";
 
 // bind modal to body
