@@ -1,6 +1,7 @@
 // import components
-import Pizza from './components/Pizza';
 import Banner from './components/Banner';
+import Pizza from './components/Pizza';
+
 
 // pizza data
 const pizzas = [
