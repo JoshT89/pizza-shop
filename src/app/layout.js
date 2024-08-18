@@ -4,9 +4,14 @@ import './globals.css';
 
 import Nav from './components/Nav';
 import CartMobileIcon from './components/CartMobileIcon';
+import CartMobile from './components/CartMobile';
+
+// import CartProvider
+import CartProvider from './context/CartContext';
 
 // import next fonts
 import { Bangers, Quicksand, Roboto_Condensed } from 'next/font/google';
+
 
 const quicksand = Quicksand({
   subsets: ['latin'],
@@ -27,6 +32,7 @@ const robotoCondensed = Roboto_Condensed({
 
 export default function RootLayout({ children }) {
   return (
+    <CartProvider>
     <html lang='en'>
       <body 
       className={`${quicksand.variable} ${bangers.variable} 
@@ -34,8 +40,10 @@ export default function RootLayout({ children }) {
       >
         <Nav />
         <CartMobileIcon />
+        <CartMobile />
         {children}
         </body>
     </html>
+    </CartProvider>
   );
 }
