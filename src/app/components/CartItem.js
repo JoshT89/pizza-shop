@@ -5,7 +5,7 @@ import { IoCloseOutline } from "react-icons/io5";
 
 const CartItem = ({ pizza }) => {
   return (
-    <div className='bg-pink-100 select-none'>
+    <div className='select-none'>
       <div className='flex gap-x-4 mb-2'>
         {/* pizza image */}
         <div className='flex justify-center items-center'>
@@ -17,55 +17,71 @@ const CartItem = ({ pizza }) => {
           />
         </div>
         {/* pizza info */}
-      <div className='flex-1 flex flex-col gap-y-1'>
-      {/* pizza name */}
-      <div className='text-lg capitalize font-bold'>{pizza.name}</div>
-      <div classname='flex flex-col gap-y-1'>
-        {/* crust */}
-        <div className='capitalize font-medium text-[15px]'>
-          {pizza.crust} crust
-          </div>
-        {/* size */}
-        <div className='capitalize mb-2 font-medium text-[15px]'>
-          {pizza.size} size
-          </div>
-        {/* quantity controls */}
-        <div className='flex items-center gap-x-1'>
-          {/* decrease quantity */}
-          <div className='w-[18px] h-[18px] flex justify-center itms-center 
-          cursor-pointer text-white gradient rounded-full'>
-            <BiMinus />
-          </div>
-          {/* pizza amount */}
-          <div className='font-semibold flex flex-1 max-w-[30px] 
-          justify-center items-center text-sm'>
-            1
+        <div className='flex-1 flex flex-col gap-y-1'>
+          {/* pizza name */}
+          <div className='text-lg capitalize font-bold'>{pizza.name}</div>
+          <div classname='flex flex-col gap-y-1'>
+            {/* crust */}
+            <div className='capitalize font-medium text-[15px]'>
+              {pizza.crust} crust
             </div>
-          {/* increase quantity */}
-          <div className='w-[18px] h-[18px] flex justify-center itms-center 
+            {/* size */}
+            <div className='capitalize mb-2 font-medium text-[15px]'>
+              {pizza.size} size
+            </div>
+            {/* quantity controls */}
+            <div className='flex items-center gap-x-1'>
+              {/* decrease quantity */}
+              <div className='w-[18px] h-[18px] flex justify-center itms-center 
           cursor-pointer text-white gradient rounded-full'>
-            <BiPlus />
+                <BiMinus />
+              </div>
+              {/* pizza amount */}
+              <div className='font-semibold flex flex-1 max-w-[30px] 
+          justify-center items-center text-sm'>
+                1
+              </div>
+              {/* increase quantity */}
+              <div className='w-[18px] h-[18px] flex justify-center itms-center 
+          cursor-pointer text-white gradient rounded-full'>
+                <BiPlus />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='flex flex-col justify-between'>
+          {/* remove item */}
+          <div className='text-2xl flex justify-center items-center self-end 
+      cursor-pointer hover:scale-110 duration-100 transition-all text-orange'>
+            <IoCloseOutline />
+          </div>
+          {/* pizza price */}
+          <div>
+            <span className='text-[17px] font-medium font-robotoCondensed'>
+              £{parseFloat(pizza.price * pizza.amount).toFixed(2)}
+            </span>
           </div>
         </div>
       </div>
-    </div>
-    <div className='flex flex-col justify-between'>
-      {/* remove item */}
-      <div className='text-2xl flex justify-center items-center self-end 
-      cursor-pointer hover:scale-110 duration-100 transition-all text-orange'>
-<IoCloseOutline />
+      {/* toppings */}
+      <div className='flex flex-wrap items-center gap-3 p- border-black/
+  10'>
+        <div className='font-semibold'>
+          Toppings: {pizza.additionalTopping.length === 0 && 'None'}
+        </div>
+        {pizza.additionalTopping.map((topping, index) => {
+  return (
+          <div
+            className='capitalize text-sm gradient font-medium px-3 py-1 
+rounded-full leading-none'
+            key={index}
+          >
+            {topping.name}
+          </div>
+        );
+        })}
       </div>
-      {/* pizza price */}
-      <div>
-        <span className='text-[17px] font-medium font-robotoCondensed'>
-          ${parseFloat(pizza.price * pizza.amount ).toFixed(2)}
-          </span>
-      </div>
     </div>
-</div>
-{/* toppings */}
-<div>toppings</div>
-</div>
   );
 
 };

@@ -4,13 +4,17 @@ import './globals.css';
 
 import Nav from './components/Nav';
 import CartMobileIcon from './components/CartMobileIcon';
-import CartMobile from './components/CartMobile';
+
 
 // import CartProvider
 import CartProvider from './context/CartContext';
 
 // import next fonts
 import { Bangers, Quicksand, Roboto_Condensed } from 'next/font/google';
+
+//components
+import CartMobile from './components/CartMobile';
+import CartDesktop from './components/CartDesktop';
 
 
 const quicksand = Quicksand({
@@ -42,6 +46,7 @@ export default function RootLayout({ children }) {
         <CartMobileIcon />
         <CartMobile />
         {children}
+        <CartDesktop />
         </body>
     </html>
     </CartProvider>
