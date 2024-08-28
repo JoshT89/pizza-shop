@@ -19,7 +19,7 @@ const modalStyles = {
 Modal.setAppElement('body');
 
 const CartBottom = () => {
-  const { setIsOpen, cart } = useContext(CartContext);
+  const { setIsOpen, cart, cartTotal } = useContext(CartContext);
 
   const [modal, setModal] = useState(false);
 
@@ -41,7 +41,7 @@ const CartBottom = () => {
           <div className='flex items-center justify-between mb-6 text-lg 
           font-semibold font-robotoCondensed'>
             <div>Total:</div>
-            <div>$320:</div>
+            <div>£{parseFloat(cartTotal).toFixed(2)}</div>
           </div>
         {/* button */}
         <div className='flex flex-col gap-y-3'>
