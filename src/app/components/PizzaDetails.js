@@ -53,13 +53,13 @@ const PizzaDetails = ({ pizza, setModal }) => {
             <div className='lg:flex-1 flex justify-center items-center'>
                 {/* pizza image */}
                 <div className='max-w-[300px] lg:max-w-none mt-6 lg:mt-0'>
-                    <Image 
-                    width={450} 
-                    height={450} 
-                    src={pizza.image} 
-                    alt=''
-                    priority={1}
-                    className='mx-auto relative' 
+                    <Image
+                        width={450}
+                        height={450}
+                        src={pizza.image}
+                        alt=''
+                        priority={1}
+                        className='mx-auto relative'
                     />
                 </div>
             </div>
@@ -86,7 +86,7 @@ const PizzaDetails = ({ pizza, setModal }) => {
                             </div>
                         </div>
                         {/* size selection */}
-                        <SizeSelection pizza={pizza} size={size} setSize={setSize}/>
+                        <SizeSelection pizza={pizza} size={size} setSize={setSize} />
                         {/* crust selection */}
                         <CrustSelection crust={crust} setCrust={setCrust} />
                         {/* additional toppings */}
@@ -96,12 +96,12 @@ const PizzaDetails = ({ pizza, setModal }) => {
                         lg:justify-start'>
                             {pizza.toppings?.map((topping, index) => {
                                 return (
-                                <Topping
-                                 topping={topping}
-                                 additionalTopping={additionalTopping}
-                                 setAdditionalTopping={setAdditionalTopping}
-                                 key={index}
-                                 />
+                                    <Topping
+                                        topping={topping}
+                                        additionalTopping={additionalTopping}
+                                        setAdditionalTopping={setAdditionalTopping}
+                                        key={index}
+                                    />
                                 );
                             })};
                         </div>
@@ -109,22 +109,21 @@ const PizzaDetails = ({ pizza, setModal }) => {
                 </div>
                 {/* add to cart button */}
                 <div className='h-full flex items-center px-2 lg:items-end'>
-                    <button 
-                    onClick={()=> 
-                    {
-                        addToCart(
-                            pizza.id, 
-                            pizza.image, 
-                            pizza.name,  
-                        price, 
-                        additionalTopping, 
-                        size, 
-                        crust
-                    ),
-                    setModal(false)
-                }
-            } 
-                    className='btn btn-lg gradient w-full flex justfy-center 
+                    <button
+                        onClick={() => {
+                            addToCart(
+                                pizza.id,
+                                pizza.image,
+                                pizza.name,
+                                price,
+                                additionalTopping,
+                                size,
+                                crust
+                            ),
+                                setModal(false);
+                        }
+                        }
+                        className='btn btn-lg gradient w-full flex justfy-center 
                     gap-x-2'
                     >
                         <div>Add to cart for</div>
